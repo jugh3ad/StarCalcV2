@@ -1,5 +1,5 @@
 
-/* Main wrapper for the entire star calculator section */
+/* Wrapper for the entire star calculator section */
 .stars-wrapper {
   display: flex;
   flex-direction: column;
@@ -10,34 +10,29 @@
   color: #fff;
 }
 
-/* Container for Current and Target star sections */
+/* Sections for Current and Target stars */
 .stars-sections {
   display: flex;
   flex-wrap: wrap;
   gap: 2rem;
-  justify-content: center; /* centers panels */
+  justify-content: space-between;
 }
 
-/* Individual star section panels */
 .star-section {
-  flex: 1 1 450;          /* responsive base width */
-  max-width: 450;         /* cap width */
-  margin-inline: auto;      /* center horizontally */
+  flex: 1 1 45%;
   background: #2e2e2e;
   padding: 1rem;
   border-radius: 0.75rem;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
-/* Header and toggle button */
-.star-section-header {
-  text-align: center;
+.star-section h3 {
   margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+  color: #ffd86a;
 }
 
 .toggle-stars {
-  display: block;
-  margin: 0 auto 1rem auto; /* center button below header */
   background: #ffd86a;
   color: #000;
   font-weight: bold;
@@ -45,87 +40,56 @@
   border: none;
   border-radius: 0.5rem;
   cursor: pointer;
+  margin-bottom: 1rem;
 }
 
 .toggle-stars:hover {
   filter: brightness(1.1);
 }
 
-/* Hide inactive views completely */
-.stars-view[hidden] {
-  display: none !important;
+/* Star input view */
+.stars-view {
+  margin-bottom: 1rem;
 }
 
-/* Center content inside each view */
-.star-section .stars-view {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-/* Star container for single input and +/- buttons */
 .star-container {
-  position: relative;
-  width: 100px;
-  height: 100px;
-  background: #1f2349;
-  border-radius: 0.5rem;
   display: flex;
   align-items: center;
-  justify-content: center;
-  margin: 0 auto;
+  gap: 0.5rem;
 }
 
-/* Star image scaled to container */
 .star-icon {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  display: block;
-  pointer-events: none;
+  width: 40px;
+  height: 40px;
 }
 
-/* Input centered over star image */
 .star-input {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 60px;
-  text-align: center;
-  padding: 0.3rem;
-  border-radius: 0.4rem;
+  width: 100px;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
   border: 1px solid #444;
-  background: rgba(13, 13, 13, 0.85);
+  background: #0d0d0d;
   color: #fff;
-  font-size: 1rem;
+  text-align: center;
 }
 
-/* +/- buttons at bottom corners */
-.star-btn.minus,
-.star-btn.plus {
-  position: absolute;
-  bottom: 0;
-  width: 32px;
-  height: 32px;
+.star-btn {
   background: #ffd86a;
   color: #000;
+  font-size: 1.2rem;
   font-weight: bold;
   border: none;
-  border-radius: 0.4rem;
+  border-radius: 0.5rem;
+  width: 40px;
+  height: 40px;
   cursor: pointer;
 }
 
-.star-btn.minus { left: 4px; }
-.star-btn.plus  { right: 4px; }
+.star-btn:hover {
+  filter: brightness(1.1);
+}
 
-.star-btn:hover { filter: brightness(1.1); }
-
-/* Remove number spinners */
-.star-input::-webkit-inner-spin-button,
-.star-input::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
-.star-input[type="number"] { -moz-appearance: textfield; }
-
+/* Bulk controls */
 .bulk-controls {
   display: flex;
   justify-content: center;
@@ -143,25 +107,29 @@
   cursor: pointer;
 }
 
-.bulk-btn:hover { filter: brightness(1.1); }
-
-#modifiers {
-  width: 100%;
-  max-width: 1000px; /* match panel width */
-  margin: 0 auto;
-  background: #2e2e2e;
-  padding: 1.5rem;
-  border-radius: 0.75rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+.bulk-btn:hover {
+  filter: brightness(1.1);
 }
 
+
+/* Modifiers section container */
+
+/* Constrain modifiers section to match panel width */
+#modifiers {
+  background: #2e2e2e;
+  padding: 1rem;
+  border-radius: 0.75rem;
+}
+
+/* Keep modifier rows neat and centered */
 .modifier-row {
   display: flex;
   flex-wrap: wrap;
   gap: 1.5rem;
-  justify-content: center;
+  justify-content: center; /* center items in row */
 }
 
+/* Modifier blocks */
 .modifier-container {
   flex: 1 1 280px;
   max-width: 25%;
@@ -174,19 +142,8 @@
   align-items: center;
 }
 
-.modifier-label {
-  font-size: 1rem;
-  font-weight: bold;
-  color: #ffd86a;
-  text-align: center;
-}
 
-.modifier-control {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
+/* Input styling */
 .modifier-input {
   width: 80px;
   padding: 0.5rem;
@@ -198,6 +155,7 @@
   font-size: 1rem;
 }
 
+/* Buttons styling (reuse star-btn look) */
 .modifier-control .star-btn {
   background: #ffd86a;
   color: #000;
@@ -210,12 +168,23 @@
   cursor: pointer;
 }
 
-.modifier-control .star-btn:hover { filter: brightness(1.1); }
+.modifier-control .star-btn:hover {
+  filter: brightness(1.1);
+}
 
+/* Hide spinners for number input */
+.modifier-input::-webkit-inner-spin-button,
+.modifier-input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.modifier-input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+
+/* Costs section */
 #costs {
-  width: 100%;
-  max-width: 1000px; /* match panel width */
-  margin: 0 auto;
   background: #2e2e2e;
   padding: 1rem;
   border-radius: 0.75rem;
@@ -234,5 +203,173 @@
   margin-bottom: 0.5rem;
 }
 
-.cost-icon { width: 32px; height: 32px; }
-.cost-label { font-size: 1rem; color: #fff; }
+.cost-icon {
+  width: 32px;
+  height: 32px;
+}
+
+.cost-label {
+  font-size: 1rem;
+  color: #fff;
+}
+
+
+.star-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.star-grid .row {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.star-container {
+  position: relative;              /* for absolute positioning of input and buttons */
+  width: 100px;
+  height: 100px;
+  background: #1f2349;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* Scaled star image */
+.star-icon {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;                 /* or: cover */
+  display: block;
+  pointer-events: none;                /* input remains clickable over it */
+}
+
+
+/* Input centered on top of the star image */
+.star-input {
+  position: absolute;
+  top: 50%;                        /* vertical center */
+  left: 50%;                       /* horizontal center */
+  transform: translate(-50%, -50%);/* perfect centering */
+  width: 60px;
+  text-align: center;
+  padding: 0.3rem;
+  border-radius: 0.4rem;
+  border: 1px solid #444;
+  background: rgba(13, 13, 13, 0.85); /* semi-transparent for overlay effect */
+  color: #fff;
+  font-size: 1rem;
+}
+
+/* Minus and plus buttons at bottom corners */
+.star-btn.minus,
+.star-btn.plus {
+  position: absolute;
+  bottom: 0px;
+  width: 32px;
+  height: 32px;
+  background: #ffd86a;
+  color: #000;
+  font-weight: bold;
+  border: none;
+  border-radius: 0.4rem;
+  cursor: pointer;
+}
+
+.star-btn.minus {
+  left: 4px;
+}
+
+.star-btn.plus {
+  right: 4px;
+}
+
+.star-btn:hover {
+  filter: brightness(1.1);
+}
+
+/* Hide spinners in Chrome, Safari, Edge */
+.star-input::-webkit-inner-spin-button,
+.star-input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Hide spinners in Firefox */
+.star-input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+
+.stars-view[hidden] {
+  display: none !important;
+}
+
+
+.star-section-header {
+  text-align: center; /* centers the h3 */
+  margin-bottom: 0.5rem;
+}
+
+.toggle-stars {
+  display: block;
+  margin: 0 auto 1rem auto; /* centers button below header */
+}
+
+
+/* Center content inside each stars-view without affecting other sections */
+.star-section .stars-view {
+  display: flex;
+  flex-direction: column; /* stack star-container and bulk controls */
+  align-items: center;     /* center horizontally */
+}
+
+/* Ensure star-container stays centered */
+.star-section .star-container {
+  margin: 0 auto;
+}
+
+/* Limit each panel width to 435px and keep them responsive */
+.star-section {
+  /* existing styles… */
+  max-width: 435px;       /* hard cap per your request */
+  flex: 1 1 435px;        /* prefer 435px width when space allows */
+  margin-inline: auto;    /* center the panel in its column */
+}
+
+/* The container that holds the two panels */
+.stars-sections {
+  /* existing styles… */
+  justify-content: center; /* keeps the pair centered in the available row */
+  gap: 2rem;               /* keep your spacing between panels */
+}
+
+/* Optional: tighten header/button centering with the new width cap */
+.star-section-header {
+  text-align: center;
+}
+.toggle-stars {
+  display: block;
+  margin: 0 auto 1rem auto;
+}
+
+/* Ensure each panel’s inner content stays centered with narrower width */
+.star-section .stars-view {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* (Optional) improve layout on smaller screens: stack them */
+@media (max-width: 920px) {
+  .stars-sections {
+    justify-content: center;
+  }
+  .star-section {
+    flex: 1 1 100%;
+    max-width: 435px;      /* still capped, but stacked full row */
+  }
+}
