@@ -1,0 +1,149 @@
+body {
+    margin: 0;
+    font-family: sans-serif;
+}
+
+/* Header bar */
+header {
+    display: flex;
+    justify-content: center;
+    /* center buttons */
+    align-items: center;
+    gap: 0.5rem;
+    /* consistent spacing */
+    background: #333;
+    padding: 0.5rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+
+header button {
+    background: none;
+    border: none;
+    padding: 0.25rem;
+    /*flex: 1;                 /* evenly distribute buttons */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header .icon-wrapper,
+header .text-wrapper {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 4px;
+    border-radius: 8px;
+    min-height: 32px;
+    min-width: 32px;
+}
+
+
+
+.icon-star {
+    background: linear-gradient(to bottom, #4b4b4b 50%, #161616 50%);
+}
+
+.icon-position {
+    background: linear-gradient(to bottom, #12FB12 50%, #12CC12 50%);
+}
+
+.icon-quest {
+    background: linear-gradient(to bottom, #70C6FF 50%, #1C87FF 50%);
+}
+
+.icon-merge {
+    background: linear-gradient(to bottom, #808080 50%, #4b4b4b 50%);
+}
+
+.icon-info {
+    background: linear-gradient(to bottom, #70C6FF 50%, #1C87FF 50%);
+    font-weight: bolder;
+    font-size: 18px;
+    /* closer to icon size */
+    color: white;
+}
+
+.icon-options {
+    background: linear-gradient(to bottom, #70C6FF 50%, #1C87FF 50%);
+}
+
+
+/* Dynamic image sizing */
+header img {
+    max-height: 32px;
+    /* consistent vertical size */
+    width: auto;
+    /* preserve aspect ratio */
+    object-fit: contain;
+    /* ensures no distortion */
+}
+
+/* Text styling */
+header .text-wrapper span {
+    font-size: 14px;
+    color: #fff;
+    font-weight: bold;
+}
+
+/* Tab content */
+.tab {
+    display: none;
+    padding: 4rem 1rem 1rem;
+    /* offset for fixed header */
+}
+
+.tab.active {
+    display: block;
+}
+
+/* Hover + Active (clicked tab stays highlighted) */
+header .icon-wrapper:hover,
+header .text-wrapper:hover,
+header .icon-wrapper.active,
+header .text-wrapper.active {
+    transform: scale(1.1);
+    transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+}
+
+/* Touch press-down effect */
+header .icon-wrapper:active,
+header .text-wrapper:active {
+    transform: scale(0.95);
+    /* slight shrink when pressed */
+    box-shadow: 0 0 4px rgba(255, 255, 255, 0.4);
+    /* softer glow */
+    transition: transform 0.1s ease;
+    /* faster response */
+}
+
+
+/* Example: override gradients for active state */
+.icon-star.active {
+    background: linear-gradient(to bottom, #6b6b6b 50%, #262626 50%);
+}
+
+.icon-position.active {
+    background: linear-gradient(to bottom, #32FF32 50%, #12FB12 50%);
+}
+
+.icon-quest.active {
+    background: linear-gradient(to bottom, #90D6FF 50%, #3C97FF 50%);
+}
+
+.icon-merge.active {
+    background: linear-gradient(to bottom, #a0a0a0 50%, #606060 50%);
+}
+
+.icon-info.active {
+    background: linear-gradient(to bottom, #90D6FF 50%, #3C97FF 50%);
+}
+
+.icon-options.active {
+    background: linear-gradient(to bottom, #90D6FF 50%, #3C97FF 50%);
+}

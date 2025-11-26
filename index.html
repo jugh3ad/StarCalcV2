@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mobile Calculator</title>
+  <!-- Core styles always needed -->
+  <link rel="stylesheet" href="css/site.css">
+  <link rel="stylesheet" href="css/stars.css">
+  <link rel="stylesheet" href="css/positions.css">
+  <link rel="stylesheet" href="css/quests.css">
+  <link rel="stylesheet" href="css/merges.css">
+  <link rel="stylesheet" href="css/info.css">
+  <link rel="stylesheet" href="css/options.css">
+  <!-- Entry point -->
+  <script type="module" src="js/starsController.js"></script>
+  <script src="js/costsController.js"></script>
+  <script type="module" src="js/positionsController.js"></script>
+  <script type="module" src="js/questsController.js"></script>
+  <script type="module" src="js/mergesController.js"></script>
+  <script type="module" src="js/infoController.js"></script>
+  <script type="module" src="js/optionsController.js"></script>
+  <script type="module" src="js/indexController.js"></script>
+  <script>
+
+</script>
+
+</head>
+
+<body>
+
+  <header>
+    <button data-tab="stars"><span class="icon-wrapper icon-star"><img src="images/star.png"
+          alt="Stars"></span></button>
+    <button data-tab="positions"><span class="icon-wrapper icon-position"><img src="images/position.png"
+          alt="Positions"></span></button>
+    <button data-tab="quests"><span class="icon-wrapper icon-quest"><img src="images/quest.png"
+          alt="Quests"></span></button>
+    <button data-tab="merges"><span class="icon-wrapper icon-merge"><img src="images/merges.png"
+          alt="Merges"></span></button>
+    <button data-tab="info"><span class="text-wrapper icon-info"><span>i</span></span></button>
+    <button data-tab="options"><span class="icon-wrapper icon-options"><img src="images/options.png"
+          alt="Options"></span></button>
+  </header>
+
+  <main>
+    <section id="stars" class="tab">
+      <div class="stars-wrapper">
+        <div class="stars-sections">
+
+          <!-- Current Star Section -->
+          <div class="star-section current">
+            <h3 id="currentStarTitle">Current Star</h3>
+            <button class="toggle-stars" id="currentStarToggle">Toggle View</button>
+            <div class="stars-view">
+              <div class="star-container">
+                <img src="images/star.png" alt="Star" class="star-icon">
+                <input type="number" class="star-input" min="10" max="99999" >
+                <button class="star-btn minus" id="currentStarMinus">−</button>
+                <button class="star-btn plus" id="currentStarPlus">+</button>
+              </div>
+            </div>
+            <div class="stars-view">
+              <div class="star-grid"><!-- grid generated dynamically --></div>
+              <div class="bulk-controls">
+                <button class="bulk-btn" data-step="-10">−10</button>
+                <button class="bulk-btn" data-step="-5">−5</button>
+                <button class="bulk-btn" data-step="-1">−1</button>
+                <button class="bulk-btn" data-step="1">+1</button>
+                <button class="bulk-btn" data-step="5">+5</button>
+                <button class="bulk-btn" data-step="10">+10</button>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Target Star Section -->
+          <div class="star-section target">
+            <h3 id="targetStarTitle">Target Star</h3>
+            <button class="toggle-stars" id="targetStarToggle">Toggle View</button>
+            <div class="stars-view">
+              <div class="star-container">
+                <img src="images/star.png" alt="Star" class="star-icon">
+                <input type="number" class="star-input" min="10" max="99999" >
+                <button class="star-btn minus" id="targetStarMinus">−</button>
+                <button class="star-btn plus" id="targetStarPlus">+</button>
+              </div>
+            </div>
+            <div class="stars-view">
+              <div class="star-grid"><!-- grid generated dynamically --></div>
+              <div class="bulk-controls">
+                <button class="bulk-btn" data-step="-10">−10</button>
+                <button class="bulk-btn" data-step="-5">−5</button>
+                <button class="bulk-btn" data-step="-1">−1</button>
+                <button class="bulk-btn" data-step="1">+1</button>
+                <button class="bulk-btn" data-step="5">+5</button>
+                <button class="bulk-btn" data-step="10">+10</button>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- Modifiers -->
+        <div id="modifiers">
+          <div class="modifier-row">
+            <div class="modifier-container">
+              <label class="modifier-label" id="modifierScrapyardLabel">Scrapyard V2</label>
+              <div class="modifier-control">
+                <button class="star-btn minus" id="modifierScrapyardMinus">−</button>
+                <input type="number" class="modifier-input" min="0" max="99999" value="0">
+                <button class="star-btn plus" id="modifierScrapyardPlus">+</button>
+              </div>
+            </div>
+            <div class="modifier-container">
+              <label class="modifier-label" id="modifierAchievementsLabel">Achievements Level 2</label>
+              <div class="modifier-control">
+                <button class="star-btn minus" id="modifierAchievementsMinus">−</button>
+                <input type="number" class="modifier-input" min="0" max="99999" value="0">
+                <button class="star-btn plus" id="modifierAchievementsPlus">+</button>
+              </div>
+            </div>
+            <div class="modifier-container">
+              <label class="modifier-label" id="modifierMasteryLabel">Mastery Barrel 17</label>
+              <div class="modifier-control">
+                <button class="star-btn minus" id="modifierMasteryMinus">−</button>
+                <input type="number" class="modifier-input" min="0" max="99999" value="0">
+                <button class="star-btn plus" id="modifierMasteryPlus">+</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cost Section -->
+      <div id="costs">
+        <h3 id="costsTitle">Costs</h3>
+        <div class="cost-row">
+          <img src="images/goldenScrap.png" alt="goldenScrap" class="cost-icon">
+          <span class="cost-label" id="costGoldenScrap">Golden Scrap</span>
+        </div>
+        <div class="cost-row">
+          <img src="images/magnet.png" alt="magnets" class="cost-icon">
+          <span class="cost-label" id="costMagnets">Magnets</span>
+        </div>
+        <div class="cost-row">
+          <img src="images/starfragment.png" alt="posStarFragment" class="cost-icon">
+          <span class="cost-label" id="costStarFragments">Star Fragments</span>
+        </div>
+      </div>
+    </section>
+
+
+
+
+    <section id="positions" class="tab">
+      <h3 id="positionsTitle">Positions</h3>
+
+      <!-- Selection Bar -->
+      <div class="positions-bar">
+        <button class="positions-btn" id="posGoldenScrap">
+          <img src="images/goldenScrap.png" alt="Golden Scrap" class="positions-icon">
+        </button>
+        <button class="positions-btn" id="posStarFragment">
+          <img src="images/starfragment.png" alt="Star Fragment" class="positions-icon">
+        </button>
+        <button class="positions-btn" id="posMasteryToken">
+          <img src="images/masteryToken.png" alt="Mastery Token" class="positions-icon">
+        </button>
+        <button class="positions-btn" id="posMagnet">
+          <img src="images/magnet.png" alt="Magnet" class="positions-icon">
+        </button>
+        <button class="positions-btn" id="posWrench">
+          <img src="images/wrench.png" alt="Wrench" class="positions-icon">
+        </button>
+      </div>
+
+      <!-- Current + Target side-by-side wrapper -->
+      <div class="positions-wrapper">
+        <!-- Current Position -->
+        <div class="position-section current">
+          <h3 id="currentPositionTitle">Current Position</h3>
+          <div class="position-grid" id="currentPositionGrid"></div>
+        </div>
+
+        <!-- Target Position -->
+        <div class="position-section target">
+          <h3 id="targetPositionTitle">Target Position</h3>
+          <div class="position-grid" id="targetPositionGrid"></div>
+        </div>
+      </div>
+    </section>
+
+
+
+
+    <section id="quests" class="tab">
+      <h2>quests</h2>
+      <p>Theme toggle, preferences, etc.</p>
+    </section>
+    <section id="merges" class="tab">
+      <h2>merges</h2>
+      <p>Theme toggle, preferences, etc.</p>
+    </section>
+    <section id="info" class="tab">
+      <h2>info</h2>
+      <p>Theme toggle, preferences, etc.</p>
+    </section>
+    <section id="options" class="tab">
+      <h3 id="optionsTitle">Options</h3>
+
+      <!-- Language Switcher -->
+      <div class="language-switcher">
+        <label for="languageSelect" id="languageSelectLabel">Language:</label>
+        <select id="languageSelect">
+          <option value="en">English</option>
+          <option value="de">Deutsch</option>
+          <option value="fr">Français</option>
+          <option value="es">Español</option>
+          <option value="pl">Polski</option>
+          <option value="pt">Português</option>
+          <option value="ru">Pусский</option>
+          <option value="uk">Українська</option>
+          <option value="it">Italiano</option>
+          <option value="tr">Türkçe</option>
+        </select>
+      </div>
+      <label>
+        <input type="checkbox" id="saveToLocalStorage">
+        Save values to local storage
+      </label>
+
+    </section>
+
+  </main>
+  <!--<script type="text/javascript" src="js/indexController.js"></script>
+  <script type="text/javascript" src="js/starsController.js"></script>
+  <script type="text/javascript" src="js/optionsController.js"></script>
+  <script type="text/javascript" src="js/positionsController.js"></script>
+  <script>
+
+
+  </script>
+-->
+
+</body>
+
+</html>

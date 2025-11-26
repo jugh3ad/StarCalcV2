@@ -1,0 +1,16 @@
+.language-switcher {
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.language-switcher label {
+    font-weight: bold;
+    margin-right: 0.5rem;
+}
+
+.language-switcher select {
+    padding: 0.4rem 0.6rem;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+}
