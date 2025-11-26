@@ -1,374 +1,238 @@
-.toggle-controls {
-    margin-bottom: 1rem;
-    text-align: center;
+
+/* Main wrapper for the entire star calculator section */
+.stars-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 1rem;
+  background: #858585;
+  border-radius: 0.75rem;
+  color: #fff;
 }
 
-.toggle-controls button {
-    padding: 0.5rem 1rem;
-    font-size: 1rem;
-    border: none;
-    border-radius: 6px;
-    background: #444;
-    color: #fff;
-}
-
-/* Container for both sections */
-/* Stars tab container: always column */
-#stars.tab.active {
-    display: flex;
-    flex-direction: column;
-    /* stack children vertically */
-    align-items: center;
-    gap: 1rem;
-    max-width: 90vw;
-    margin: 0 auto;
-}
-
-/* Remove the media query that changes #stars to row */
-@media (min-width: 768px) {
-    #stars.tab.active {
-        flex-direction: column;
-        /* keep column even on wide screens */
-    }
-}
-
-
-
-/* Flex only applies to Current + Target */
+/* Container for Current and Target star sections */
 .stars-sections {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center; /* centers panels */
 }
 
-@media (min-width: 768px) {
-    .stars-sections {
-        flex-direction: row;
-        /* Current + Target side by side */
-        align-items: flex-start;
-    }
+/* Individual star section panels */
+.star-section {
+  flex: 1 1 435px;          /* responsive base width */
+  max-width: 435px;         /* cap width */
+  margin-inline: auto;      /* center horizontally */
+  background: #2e2e2e;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
-
-/* Modifiers stay below, aligned with stars */
-#modifiers {
-    margin-top: 2rem;
-    text-align: center;
-    max-width: 90vw;
-    /* match the stars container */
-    margin-left: auto;
-    margin-right: auto;
-    /* center horizontally */
-}
-
-
-
-
-
-/* Current Star section */
-.star-section.current {
-    background: linear-gradient(to bottom, #fff8dc, #ffe4b5);
-    /* warm gold tones */
-    padding: 1rem;
-    border-radius: 8px;
-    margin-bottom: 2rem;
-}
-
-/* Target Star section */
-.star-section.target {
-    background: linear-gradient(to bottom, #e0f7fa, #b2ebf2);
-    /* cool blue tones */
-    padding: 1rem;
-    border-radius: 8px;
-    margin-bottom: 2rem;
-}
-
-/* Headings inside sections */
-.star-section h3 {
-    text-align: center;
-    margin-bottom: 0.5rem;
-    font-weight: bold;
+/* Header and toggle button */
+.star-section-header {
+  text-align: center;
+  margin-bottom: 0.5rem;
 }
 
 .toggle-stars {
-    display: block;
-    margin: 0 auto 1rem;
-    padding: 0.5rem 1rem;
-    border: none;
-    border-radius: 6px;
-    background: #444;
-    color: #fff;
+  display: block;
+  margin: 0 auto 1rem auto; /* center button below header */
+  background: #ffd86a;
+  color: #000;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
 }
 
-.stars-view {
-    display: none;
-    text-align: center;
+.toggle-stars:hover {
+  filter: brightness(1.1);
 }
 
-.stars-view.active {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    /* pushes bulk-controls down */
-    height: 100%;}
-/* Ensure the stars-view fills available space 
-.stars-view {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    /* pushes bulk-controls down 
-    height: 100%;
-}*/
+/* Hide inactive views completely */
+.stars-view[hidden] {
+  display: none !important;
+}
+
+/* Center content inside each view */
+.star-section .stars-view {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Star container for single input and +/- buttons */
 .star-container {
-    position: relative;
-    display: inline-block;
+  position: relative;
+  width: 100px;
+  height: 100px;
+  background: #1f2349;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
 }
 
+/* Star image scaled to container */
 .star-icon {
-    max-width: 120px;
-    height: auto;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  pointer-events: none;
 }
 
+/* Input centered over star image */
 .star-input {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 50%;
-    text-align: center;
-    border: none;
-    background: rgba(255, 255, 255, 0.85);
-    border-radius: 6px;
-    font-size: 1.2rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60px;
+  text-align: center;
+  padding: 0.3rem;
+  border-radius: 0.4rem;
+  border: 1px solid #444;
+  background: rgba(13, 13, 13, 0.85);
+  color: #fff;
+  font-size: 1rem;
 }
 
-.star-btn {
-    position: absolute;
-    bottom: 5%;
-    width: 32px;
-    height: 32px;
-    /* square shape */
-    border: none;
-    border-radius: 4px;
-    /* small rounding, or set to 0 for sharp corners */
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: #fff;
-    cursor: pointer;
-    line-height: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    /* Gradient background */
-    background: linear-gradient(to bottom, #70C6FF 50%, #1C87FF 50%);
-}
-
-.star-btn.minus {
-    left: 5%;
-}
-
+/* +/- buttons at bottom corners */
+.star-btn.minus,
 .star-btn.plus {
-    right: 5%;
+  position: absolute;
+  bottom: 0;
+  width: 32px;
+  height: 32px;
+  background: #ffd86a;
+  color: #000;
+  font-weight: bold;
+  border: none;
+  border-radius: 0.4rem;
+  cursor: pointer;
 }
 
-.star-btn:hover {
-    filter: brightness(1.1);
-    /* subtle hover effect */
-}
+.star-btn.minus { left: 4px; }
+.star-btn.plus  { right: 4px; }
 
+.star-btn:hover { filter: brightness(1.1); }
 
-/* Remove arrows in Chrome, Safari, Edge */
+/* Remove number spinners */
 .star-input::-webkit-inner-spin-button,
-.star-input::-webkit-outer-spin-button,
-.position-input::-webkit-inner-spin-button,
-.position-input::-webkit-outer-spin-button,
-.modifier-input::-webkit-inner-spin-button,
-.modifier-input::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
+.star-input::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
+.star-input[type="number"] { -moz-appearance: textfield; }
+
+.bulk-controls {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
 }
 
-/* Remove arrows in Firefox */
-.star-input[type=number],
-.modifier-input[type=number],
-.position-input[type=number] {
-    -moz-appearance: textfield;
+.bulk-btn {
+  background: #ffd86a;
+  color: #000;
+  font-weight: bold;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
 }
 
-/* General styling for consistency */
-.star-input,
-.modifier-input,
-.position-input {
-    appearance: textfield;
-    /* fallback */
-}
+.bulk-btn:hover { filter: brightness(1.1); }
 
-
-
-.star-grid {
-    display: flex;
-    flex-direction: column;
-}
-
-.star-grid .row {
-    display: flex;
-    justify-content: center;
-
+#modifiers {
+  width: 100%;
+  max-width: 1000px; /* match panel width */
+  margin: 0 auto;
+  background: #2e2e2e;
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 .modifier-row {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
 }
 
 .modifier-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  flex: 1 1 280px;
+  max-width: 25%;
+  background: #1f2349;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  align-items: center;
 }
 
 .modifier-label {
-    margin-bottom: 0.5rem;
-    font-weight: bold;
-    font-size: 1rem;
-    color: #1C87FF;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #ffd86a;
+  text-align: center;
 }
 
-/* --- Modifier-specific layout --- */
 .modifier-control {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
-
-/* Ensure modifier buttons stay inline */
-.modifier-control .star-btn {
-    position: static;
-    /* override absolute positioning */
-}
-
 
 .modifier-input {
-    width: 80px;
-    text-align: center;
-    font-size: 1rem;
-    padding: 0.5rem;
-    border: 2px solid #1C87FF;
-    border-radius: 6px;
-    background: rgba(255, 255, 255, 0.9);
+  width: 80px;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid #444;
+  background: #0d0d0d;
+  color: #fff;
+  text-align: center;
+  font-size: 1rem;
 }
 
-/* Square gradient buttons */
-.star-btn {
-    width: 32px;
-    height: 32px;
-    border: none;
-    border-radius: 4px;
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: #fff;
-    background: linear-gradient(to bottom, #70C6FF 50%, #1C87FF 50%);
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.modifier-control .star-btn {
+  background: #ffd86a;
+  color: #000;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 0.5rem;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
 }
 
-.star-btn:hover {
-    filter: brightness(1.1);
-}
-
-.modifier-row {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    flex-direction: column;
-    /* default: vertical stack */
-    align-items: center;
-    /* center items horizontally */
-}
-
-/* On wider screens, switch back to horizontal row */
-@media (min-width: 768px) {
-    .modifier-row {
-        flex-direction: row;
-        align-items: flex-start;
-    }
-}
+.modifier-control .star-btn:hover { filter: brightness(1.1); }
 
 #costs {
-    margin-top: 2rem;
-    text-align: left;
-    /* align labels to the left */
-    width: 100%;
-    max-width: 400px;
-    /* keep it neat */
-    margin-left: auto;
-    margin-right: auto;
-    /* center the whole block */
+  width: 100%;
+  max-width: 1000px; /* match panel width */
+  margin: 0 auto;
+  background: #2e2e2e;
+  padding: 1rem;
+  border-radius: 0.75rem;
 }
 
-#costs h3 {
-    text-align: center;
-    margin-bottom: 1rem;
-    font-weight: bold;
-    color: #1C87FF;
+#costsTitle {
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  color: #ffd86a;
 }
 
 .cost-row {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-bottom: 1rem;
-    background: rgba(240, 240, 240, 0.8);
-    padding: 0.5rem 1rem;
-    border-radius: 6px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 
-.cost-icon {
-    width: 32px;
-    height: 32px;
-    object-fit: contain;
-}
-
-.cost-label {
-    font-size: 1rem;
-    font-weight: bold;
-    color: #333;
-}
-
-
-
-/* Bulk controls row */
-.bulk-controls {
-    margin-top: auto;
-    /* push to bottom */
-    padding-top: 1.5rem;
-    /* gap above buttons */
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    /* spacing between buttons */
-}
-
-/* Bulk buttons with star background */
-.bulk-btn {
-    font-size: 0.9rem;
-    padding: 6px 12px;
-    border: none;
-    border-radius: 6px;
-    color: black;
-    cursor: pointer;
-
-    background-image: url("../images/star.png");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
-    background-color: transparent;
-
-    text-shadow: 0 0 3px rgba(0, 0, 0, 0.7);
-}
+.cost-icon { width: 32px; height: 32px; }
+.cost-label { font-size: 1rem; color: #fff; }

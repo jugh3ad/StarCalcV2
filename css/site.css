@@ -1,149 +1,113 @@
-body {
-    margin: 0;
-    font-family: sans-serif;
+
+/* Container: horizontal, centered, no gaps */
+.tab-buttons {
+  display: flex;
+  justify-content: center;   /* center the whole group */
+  align-items: stretch;
+  gap: 0;                    /* remove space between buttons */
 }
 
-/* Header bar */
-header {
-    display: flex;
-    justify-content: center;
-    /* center buttons */
-    align-items: center;
-    gap: 0.5rem;
-    /* consistent spacing */
-    background: #333;
-    padding: 0.5rem;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1000;
+/* Base button: same size, content centered */
+.tab-btn {
+  width: 80px;
+  height: 80px;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  margin: 0;
+  color: #fff;
+  font-weight: 700;
+  text-align: center;
+  cursor: pointer;
+
+  /* Inner corners: square; we’ll round only outer edges via first/last-child */
+  border-radius: 0;
 }
 
-
-header button {
-    background: none;
-    border: none;
-    padding: 0.25rem;
-    /*flex: 1;                 /* evenly distribute buttons */
-    display: flex;
-    justify-content: center;
-    align-items: center;
+/* Outer corners: first and last get rounded edges */
+.tab-btn:first-child {
+  border-top-left-radius: 0.75rem;
+  border-bottom-left-radius: 0.75rem;
 }
-
-header .icon-wrapper,
-header .text-wrapper {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    padding: 4px;
-    border-radius: 8px;
-    min-height: 32px;
-    min-width: 32px;
+.tab-btn:last-child {
+  border-top-right-radius: 0.75rem;
+  border-bottom-right-radius: 0.75rem;
 }
 
 
+/* Keep images and the “i” icon consistent */
 
-.icon-star {
-    background: linear-gradient(to bottom, #4b4b4b 50%, #161616 50%);
+.tab-btn img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
 }
 
-.icon-position {
-    background: linear-gradient(to bottom, #12FB12 50%, #12CC12 50%);
-}
+.tab-btn .icon-text {
+  font-size: 40px;
+  line-height: 1;
+  font-weight: bold;
 
-.icon-quest {
-    background: linear-gradient(to bottom, #70C6FF 50%, #1C87FF 50%);
-}
-
-.icon-merge {
-    background: linear-gradient(to bottom, #808080 50%, #4b4b4b 50%);
-}
-
-.icon-info {
-    background: linear-gradient(to bottom, #70C6FF 50%, #1C87FF 50%);
-    font-weight: bolder;
-    font-size: 18px;
-    /* closer to icon size */
-    color: white;
-}
-
-.icon-options {
-    background: linear-gradient(to bottom, #70C6FF 50%, #1C87FF 50%);
 }
 
 
-/* Dynamic image sizing */
-header img {
-    max-height: 32px;
-    /* consistent vertical size */
-    width: auto;
-    /* preserve aspect ratio */
-    object-fit: contain;
-    /* ensures no distortion */
-}
-
-/* Text styling */
-header .text-wrapper span {
-    font-size: 14px;
-    color: #fff;
-    font-weight: bold;
-}
-
-/* Tab content */
-.tab {
-    display: none;
-    padding: 4rem 1rem 1rem;
-    /* offset for fixed header */
-}
-
-.tab.active {
-    display: block;
-}
-
-/* Hover + Active (clicked tab stays highlighted) */
-header .icon-wrapper:hover,
-header .text-wrapper:hover,
-header .icon-wrapper.active,
-header .text-wrapper.active {
-    transform: scale(1.1);
-    transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
-    box-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
-}
-
-/* Touch press-down effect */
-header .icon-wrapper:active,
-header .text-wrapper:active {
-    transform: scale(0.95);
-    /* slight shrink when pressed */
-    box-shadow: 0 0 4px rgba(255, 255, 255, 0.4);
-    /* softer glow */
-    transition: transform 0.1s ease;
-    /* faster response */
+.tab-btn + .tab-btn {
+  box-shadow: inset 1px 0 0 rgba(255,255,255,0.08);
 }
 
 
-/* Example: override gradients for active state */
-.icon-star.active {
-    background: linear-gradient(to bottom, #6b6b6b 50%, #262626 50%);
+.tab-btn.active {
+  outline: 2px solid #ffd86a;
+  outline-offset: -2px;
+  filter: brightness(1.12);
+}
+/* Individual button colors */
+.tab-btn.star { background: linear-gradient(to bottom, #4b4b4b 50%, #161616 50%); }
+.tab-btn.positions { background: linear-gradient(to bottom, #12FB12 50%, #12CC12 50%) }
+.tab-btn.quests { background: linear-gradient(to bottom, #70C6FF 50%, #1C87FF 50%); }
+.tab-btn.merges { background: linear-gradient(to bottom, #808080 50%, #4b4b4b 50%); }
+.tab-btn.info { background: linear-gradient(to bottom, #70C6FF 50%, #1C87FF 50%); }
+.tab-btn.options { background: linear-gradient(to bottom, #70C6FF 50%, #1C87FF 50%); }
+
+
+/* Focus & hover for accessibility and feedback */
+.tab-btn:focus-visible {
+  outline: 2px solid #ffd86a;         /* focus color */
+  outline-offset: 2px;
+}
+.tab-btn:hover {
+  filter: brightness(1.06);
+}
+/* Tab panel styles */
+
+.tab-panels .panel {
+  display: none;
+  background: #4e4e4e;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  margin-bottom: 1rem;
 }
 
-.icon-position.active {
-    background: linear-gradient(to bottom, #32FF32 50%, #12FB12 50%);
+.tab-panels .panel.active {
+  display: block;
 }
 
-.icon-quest.active {
-    background: linear-gradient(to bottom, #90D6FF 50%, #3C97FF 50%);
+
+/* Apply to all tab panels */
+.panel {
+  width: 100%;
+  max-width: 1000px;      /* cap width at 1000px */
+  margin: 0 auto;         /* center horizontally */
+  background: #2e2e2e;    /* keep consistent styling */
+  padding: 1rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
-.icon-merge.active {
-    background: linear-gradient(to bottom, #a0a0a0 50%, #606060 50%);
-}
-
-.icon-info.active {
-    background: linear-gradient(to bottom, #90D6FF 50%, #3C97FF 50%);
-}
-
-.icon-options.active {
-    background: linear-gradient(to bottom, #90D6FF 50%, #3C97FF 50%);
+/* Optional: center text for placeholder panels */
+.panel:not(.active) {
+  text-align: center;
+  color: #fff;
 }
