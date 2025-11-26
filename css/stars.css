@@ -20,8 +20,8 @@
 
 /* Individual star section panels */
 .star-section {
-  flex: 1 1 435px;          /* responsive base width */
-  max-width: 435px;         /* cap width */
+  flex: 1 1 450;          /* responsive base width */
+  max-width: 450;         /* cap width */
   margin-inline: auto;      /* center horizontally */
   background: #2e2e2e;
   padding: 1rem;
