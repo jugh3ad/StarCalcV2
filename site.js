@@ -13,7 +13,7 @@ let currentLang = "en";
 
 async function loadLanguage(lang) {
   try {
-    const res = await fetch(`/lang/${lang}.json`);
+    const res = await fetch(`lang/${lang}.json`);
     translations = await res.json();   // only this language’s keys
     currentLang = lang;
     updateTranslations();
@@ -241,3 +241,4 @@ function convertIndexToAbstract(index) {
   const remainder = (index - 1) % 26 + 1;
   return convertIndexToAbstract((index - remainder) / 26) + String.fromCharCode(96 + remainder);
 }
+
