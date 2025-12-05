@@ -1,113 +1,374 @@
+:root {
+    --color-pale-green: #A6D3AD;
+    --color-green: #22B241;
+    --color-dark-green: #18702C;
+    --color-dark-blue: #0070C2;
+    --color-light-blue: #3698FF;
+    --color-light-gray: #BEBEBE;
+    --color-gray: #737374;
+    --color-dark-gray: #636363;
+    --color-darker-gray: #3d3d3d;
+    --color-black: #1F1F1F;
+    --color-red: #CD0001;
+    --color-dark-red: #AF0000;
 
-/* Container: horizontal, centered, no gaps */
-.tab-buttons {
-  display: flex;
-  justify-content: center;   /* center the whole group */
-  align-items: stretch;
-  gap: 0;                    /* remove space between buttons */
 }
 
-/* Base button: same size, content centered */
-.tab-btn {
-  width: 80px;
-  height: 80px;
-  display: inline-flex;
-  flex-direction: column;
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    min-width: 360px;
+    justify-content: center;  /* centers horizontally */
+    background-color: var(--color-pale-green);}
+
+h2 {
+    background: linear-gradient(to bottom, var(--color-gray) 50%, var(--color-dark-gray) 50%);
+    color: white;
+    width: fit-content;
+    padding: 5px 10px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    min-width: 360px;
+    justify-content: center;  /* centers horizontally */
+
+}
+
+.navigationBar {
+    background-color: var(--color-dark-green);
+    padding: 10px;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    top: 0;
+    min-width: 360px;
+    max-width: 1000px;
+    width: 100%;
+}
+
+.navButton {
+    background-color: var(--color-green);
+    display: inline-block;
+    cursor: pointer;
+    border: none;
+    width: 80px;
+    height: 80px;
+}
+
+.navButton.info {
+    margin-left: auto;
+    font-size: 40px;
+    line-height: 1;
+    font-weight: bold;
+    color: white
+}
+
+.navButton img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+}
+
+.navButton.star {
+    background: linear-gradient(to bottom, var(--color-darker-gray) 50%, var(--color-black) 50%);
+}
+
+.navButton.position {
+    background: linear-gradient(to bottom, #12FB12 50%, #12CC12 50%)
+}
+
+.navButton.quest {
+    background: linear-gradient(to bottom, #70C6FF 50%, #1C87FF 50%);
+}
+
+.navButton.merge {
+    background: linear-gradient(to bottom, #808080 50%, #4b4b4b 50%);
+}
+
+.navButton.info {
+    background: linear-gradient(to bottom, #70C6FF 50%, #1C87FF 50%);
+}
+
+.navButton.option {
+    background: linear-gradient(to bottom, #70C6FF 50%, #1C87FF 50%);
+}
+
+.tab-content {
+
+    width: 100%;
+    max-width: 1000px;
+    margin-top: 20px;
+    background-color: var(--color-gray);
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.tab-pane:not(.active) {
+    display: none;
+}
+
+.tab-content .tab-pane.active {
+    display: block;
+}
+
+.star-content {
+    padding: 20px;
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 3rem;
+}
+
+.star-grid {
+  display: flex;
+  flex-direction: column;   /* stack rows vertically */
+  gap: 1rem;                /* spacing between rows */
+  align-items: center;      /* center rows horizontally */
+  background-color: var(--color-light-gray);
+}
+
+.star-row {
+  display: flex;
+  gap: 0.5rem;              /* spacing between cells */
+  justify-content: center;  /* center stars in each row */
+}
+
+.star-cell {
+  width: 120px;             /* consistent cell width */
+  text-align: center;
+}
+
+
+.star-cell {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    display: flex;
+}
+
+.star-icon {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.star-input {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -45%);
+    width: 60px;
+    padding: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    outline: none;
+    text-align: center;
+    background: transparent;
+}
+
+.set-stars {
+  display: flex;
+  align-items: center;   /* ✅ vertical centering */
+  justify-content: center; /* ✅ horizontal centering */
+  gap: 0.5rem;           /* space between text and input */
+}
+
+.set-stars input {
+  width: 80px;           /* fixed width for consistency */
+  padding: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+}
+
+
+/* Hide spinners for number input */
+input::-webkit-inner-spin-button,
+input::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.btn {
+    background: linear-gradient(to bottom, var(--color-light-blue) 50%, var(--color-dark-blue) 50%);
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.btn.minus {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    width: 30px;
+    height: 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn.plus {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    width: 30px;
+    height: 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.bulk-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 5px;
+}
+
+.btn.bulk {
+    width: 45px;
+    height: 45px;
+    align-items: center;
+    display: inline-flex;
+    border-radius: 15px;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.btn.bulk img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Default: horizontal layout */
+.star-modifiers {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  background-color: var(--color-light-gray);
+  max-width: 800px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.modifier-container {
+  flex: 1;                /* equal width for all three */
+  display: flex;
+  flex-direction: column; /* label above controls */
+  gap: 0.5rem;
+  box-sizing: border-box;
+  align-items: center;
+  
+}
+
+/* Controls row stays horizontal */
+.modifier-control {
+  display: flex;
   align-items: center;
   justify-content: center;
-  border: none;
-  margin: 0;
-  color: #fff;
-  font-weight: 700;
-  text-align: center;
-  cursor: pointer;
-
-  /* Inner corners: square; we’ll round only outer edges via first/last-child */
-  border-radius: 0;
+  gap: 0.5rem;
+  min-width: 250px;
 }
 
-/* Outer corners: first and last get rounded edges */
-.tab-btn:first-child {
-  border-top-left-radius: 0.75rem;
-  border-bottom-left-radius: 0.75rem;
-}
-.tab-btn:last-child {
-  border-top-right-radius: 0.75rem;
-  border-bottom-right-radius: 0.75rem;
-}
-
-
-/* Keep images and the “i” icon consistent */
-
-.tab-btn img {
-  width: 48px;
-  height: 48px;
-  object-fit: contain;
-}
-
-.tab-btn .icon-text {
-  font-size: 40px;
-  line-height: 1;
+.modifier-label {
+  text-align: center;       /* center text inside the label itself */
+  margin: 0;                /* remove default h2 margins */
   font-weight: bold;
+      width: fit-content;
+    padding: 5px 10px;
+}
 
+.modifier-control .btn.minus,
+.modifier-control .btn.plus {
+  position: static;   /* override absolute positioning */
+  bottom: auto;
+  left: auto;
+  right: auto;
+  margin: 0;          /* reset margins */
+  width: 30px;
+  height: 30px;
+  flex-shrink: 0;     /* keep fixed size */
 }
 
 
-.tab-btn + .tab-btn {
-  box-shadow: inset 1px 0 0 rgba(255,255,255,0.08);
-}
-
-
-.tab-btn.active {
-  outline: 2px solid #ffd86a;
-  outline-offset: -2px;
-  filter: brightness(1.12);
-}
-/* Individual button colors */
-.tab-btn.star { background: linear-gradient(to bottom, #4b4b4b 50%, #161616 50%); }
-.tab-btn.positions { background: linear-gradient(to bottom, #12FB12 50%, #12CC12 50%) }
-.tab-btn.quests { background: linear-gradient(to bottom, #70C6FF 50%, #1C87FF 50%); }
-.tab-btn.merges { background: linear-gradient(to bottom, #808080 50%, #4b4b4b 50%); }
-.tab-btn.info { background: linear-gradient(to bottom, #70C6FF 50%, #1C87FF 50%); }
-.tab-btn.options { background: linear-gradient(to bottom, #70C6FF 50%, #1C87FF 50%); }
-
-
-/* Focus & hover for accessibility and feedback */
-.tab-btn:focus-visible {
-  outline: 2px solid #ffd86a;         /* focus color */
-  outline-offset: 2px;
-}
-.tab-btn:hover {
-  filter: brightness(1.06);
-}
-/* Tab panel styles */
-
-.tab-panels .panel {
-  display: none;
-  background: #4e4e4e;
-  padding: 1rem;
-  border-radius: 0.75rem;
-  margin-bottom: 1rem;
-}
-
-.tab-panels .panel.active {
-  display: block;
-}
-
-
-/* Apply to all tab panels */
-.panel {
-  width: 100%;
-  max-width: 1000px;      /* cap width at 1000px */
-  margin: 0 auto;         /* center horizontally */
-  background: #2e2e2e;    /* keep consistent styling */
-  padding: 1rem;
-  border-radius: 0.75rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-}
-
-/* Optional: center text for placeholder panels */
-.panel:not(.active) {
+.modifier-input {
+  display: flex;          /* ensures consistent box alignment */
+  align-items: center;    /* centers text inside if needed */
+  justify-content: center;
+  height: 30px;           /* match button height */
   text-align: center;
-  color: #fff;
+  box-sizing: border-box;
+  width: 80px;  
+  font-size: 16px;          /* fixed width for consistency */
+  font-weight: bold;
+}
+
+
+.star-costs {
+    margin-top: 40px;
+    font-size: 18px;
+    font-weight: bold;
+    overflow:visible;
+    justify-content: left;
+    background-color: var(--color-light-gray);
+margin: 20px auto;
+    padding: 20px;
+    max-width: 800px;
+}
+
+.star-costs img {
+    vertical-align: middle;
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+}
+
+.cost-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 10px;
+}
+.cost-label {
+  white-space: nowrap;   /* prevent wrapping */
+  overflow: visible;     /* allow text to spill out */
+  flex-shrink: 0;        /* prevent flexbox from shrinking it */
+}
+
+/* Responsive: stack vertically when star-grid stacks */
+@media (max-width: 879px) {
+  .star-grid {
+    grid-template-columns: 1fr; /* stack stars vertically */
+  }
+
+  .star-modifiers {
+    flex-direction: column; /* stack vertically */
+    align-items: center;    /* center children horizontally */
+    max-width: 376px;       /* optional: narrower width on mobile */
+    margin: 0 auto;         /* ✅ keep the block centered */
+
+  }
+  .star-costs {
+    max-width: 376px;       /* optional: narrower width on mobile */
+    margin: 20px auto;         /* ✅ keep the block centered */
+
+  }
+
 }

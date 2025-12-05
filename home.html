@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Index Layout</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="stars.css" />
+    <link rel="stylesheet" href="options.css" />
+</head>
+
+<body>
+    <header>
+        <nav class="mainNav">
+            <button type="button" class="navButton star" data-target="starTab"><img src="images/star.png"
+                    alt="Star"></button>
+            <button type="button" class="navButton position" data-target="posTab"><img src="images/position.png"
+                    alt="Position"></button>
+            <button type="button" class="navButton quest" data-target="questTab"><img src="images/quest.png"
+                    alt="Quest"></button>
+            <button type="button" class="navButton merge" data-target="mergeTab"><img src="images/merges.png"
+                    alt="Merge"></button>
+            <button type="button" class="navButton info" data-target="infoTab">i</button>
+            <button type="button" class="navButton option" data-target="optionTab"><img src="images/options.png"
+                    alt="Option"></button>
+        </nav>
+    </header>
+    <main>
+        <section class="starTab">
+            <h1 data-i18n="star-calc-header-label">Stars Upgrade</h1>
+            <div class="starCalcInputs">
+                <div class="starCalcInput">
+                    <h2 for="currentStarLevel" data-i18n="current-star-level-label">Current Stars</h2>
+                    <h3> <span data-i18n="set-all-stars-label">Set All</span>
+                        <input type="number" class="starInput" id="set-all-current-stars" min="10" max="99999"
+                            placeholder="10">
+                        <button class="toggleGrid" data-i18n="toggle-grid-view-label-hide"
+                            onclick="toggleVisibility('currentStarGrid',this)">Hide Grid</button>
+                    </h3>
+                    <div class="starGrid" id="currentStarGrid">
+                        <div class="row two">
+                            <div class="star-cell"><img src="images/star.png" alt="Star" class="star-icon">
+                                <input type="number" class="starInput" id="star-current-1" min="10" max="99999"
+                                    placeholder="10">
+                                <button class="btn padlock">🔒</button>
+                                <button class="btn minus">-</button>
+                                <button class="btn plus">+</button>
+                            </div>
+                            <div class="star-cell"><img src="images/star.png" alt="Star" class="star-icon">
+                                <input type="number" class="starInput" id="star-current-2" min="10" max="99999"
+                                    placeholder="10">
+                                <button class="btn padlock">🔒</button>
+                                <button class="btn minus">-</button>
+                                <button class="btn plus">+</button>
+                            </div>
+                        </div>
+                        <div class="row three">
+                            <div class="star-cell"><img src="images/star.png" alt="Star" class="star-icon">
+                                <input type="number" class="starInput" id="star-current-3" min="10" max="99999"
+                                    placeholder="10">
+                                <button class="btn padlock">🔒</button>
+                                <button class="btn minus">-</button>
+                                <button class="btn plus">+</button>
+                            </div>
+                            <div class="star-cell"><img src="images/star.png" alt="Star" class="star-icon">
+                                <input type="number" class="starInput" id="star-current-4" min="10" max="99999"
+                                    placeholder="10">
+                                <button class="btn padlock">🔒</button>
+                                <button class="btn minus">-</button>
+                                <button class="btn plus">+</button>
+                            </div>
+                            <div class="star-cell"><img src="images/star.png" alt="Star" class="star-icon">
+                                <input type="number" class="starInput" id="star-current-5" min="10" max="99999"
+                                    placeholder="10">
+                                <button class="btn padlock">🔒</button>
+                                <button class="btn minus">-</button>
+                                <button class="btn plus">+</button>
+                            </div>
+                        </div>
+                        <div class="row three">
+                            <div class="star-cell"><img src="images/star.png" alt="Star" class="star-icon">
+                                <input type="number" class="starInput" id="star-current-6" min="10" max="99999"
+                                    placeholder="10">
+                                <button class="btn padlock">🔒</button>
+                                <button class="btn minus">-</button>
+                                <button class="btn plus">+</button>
+                            </div>
+                            <div class="star-cell"><img src="images/star.png" alt="Star" class="star-icon">
+                                <input type="number" class="starInput" id="star-current-7" min="10" max="99999"
+                                    placeholder="10">
+                                <button class="btn padlock">🔒</button>
+                                <button class="btn minus">-</button>
+                                <button class="btn plus">+</button>
+                            </div>
+                            <div class="star-cell"><img src="images/star.png" alt="Star" class="star-icon">
+                                <input type="number" class="starInput" id="star-current-8" min="10" max="99999"
+                                    placeholder="10">
+                                <button class="btn padlock">🔒</button>
+                                <button class="btn minus">-</button>
+                                <button class="btn plus">+</button>
+                            </div>
+                        </div>
+                        <div class="row two">
+                            <div class="star-cell"><img src="images/star.png" alt="Star" class="star-icon">
+                                <input type="number" class="starInput" id="star-current-9" min="10" max="99999"
+                                    placeholder="10">
+                                <button class="btn padlock">🔒</button>
+                                <button class="btn minus">-</button>
+                                <button class="btn plus">+</button>
+                            </div>
+                            <div class="star-cell"><img src="images/star.png" alt="Star" class="star-icon">
+                                <input type="number" class="starInput" id="star-current-10" min="10" max="99999"
+                                    placeholder="10">
+                                <button class="btn padlock">🔒</button>
+                                <button class="btn minus">-</button>
+                                <button class="btn plus">+</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bulk-buttons">
+                        <button class="btn bulk" data-step="-10">-10</button>
+                        <button class="btn bulk" data-step="-5">-5</button>
+                        <button class="btn bulk" data-step="-1">-1</button>
+                        <button class="btn bulk" data-step="1">+1</button>
+                        <button class="btn bulk" data-step="5">+5</button>
+                        <button class="btn bulk" data-step="10">+10</button>
+                    </div>
+                </div>
+                <div class="starCalcInput">
+                    <h2 data-i18n="target-star-level-label">Target Stars</h2>
+                    <h3> <span data-i18n="set-all-stars-label">Set All</span>
+                        <input type="number" class="starInput" id="set-all-target-stars" min="10" max="99999"
+                            placeholder="10">
+                        <button class="toggleGrid" data-i18n="toggle-grid-view-label-hide"
+                            onclick="toggleVisibility('targetStarGrid',this)">Hide Grid</button>
+                    </h3>
+                    </h3>
+                    <div class="starGrid" id="targetStarGrid">
+                        <div class="row two">
+                            <div class="star-cell"><img src="images/star.png" alt="Star" class="star-icon">
+                                <input type="number" class="starInput" id="star-target-1" min="10" max="99999"
+                                    placeholder="10">
+                                <button class="btn padlock">🔒</button>
+                                <button class="btn minus">-</button>
+                                <button class="btn plus">+</button>
+                            </div>
+                            <div class="star-cell"><img src="images/star.png" alt="Star" class="star-icon">
+                                <input type="number" class="starInput" id="star-target-2" min="10" max="99999"
+                                    placeholder="10">
+                                <button class="btn padlock">🔒</button>
+                                <button class="btn minus">-</button>
+                                <button class="btn plus">+</button>
+                            </div>
+                        </div>
+                        <div class="row three">
+                            <div class="star-cell"><img src="images/star.png" alt="Star" class="star-icon">
+                                <input type="number" class="starInput" id="star-target-3" min="10" max="99999"
+                                    placeholder="10">
+                                <button class="btn padlock">🔒</button>
+                                <button class="btn minus">-</button>
+                                <button class="btn plus">+</button>
+                            </div>
+                            <div class="star-cell"><img src="images/star.png" alt="Star" class="star-icon">
+                                <input type="number" class="starInput" id="star-target-4" min="10" max="99999"
+                                    placeholder="10">
+                                <button class="btn padlock">🔒</button>
+                                <button class="btn minus">-</button>
+                                <button class="btn plus">+</button>
+                            </div>
+                            <div class="star-cell"><img src="images/star.png" alt="Star" class="star-icon">
+                                <input type="number" class="starInput" id="star-target-5" min="10" max="99999"
+                                    placeholder="10">
+                                <button class="btn padlock">🔒</button>
+                                <button class="btn minus">-</button>
+                                <button class="btn plus">+</button>
+                            </div>
+                        </div>
+                        <div class="row three">
+                            <div class="star-cell"><img src="images/star.png" alt="Star" class="star-icon">
+                                <input type="number" class="starInput" id="star-target-6" min="10" max="99999"
+                                    placeholder="10">
+                                <button class="btn padlock">🔒</button>
+                                <button class="btn minus">-</button>
+                                <button class="btn plus">+</button>
+                            </div>
+                            <div class="star-cell"><img src="images/star.png" alt="Star" class="star-icon">
+                                <input type="number" class="starInput" id="star-target-7" min="10" max="99999"
+                                    placeholder="10">
+                                <button class="btn padlock">🔒</button>
+                                <button class="btn minus">-</button>
+                                <button class="btn plus">+</button>
+                            </div>
+                            <div class="star-cell"><img src="images/star.png" alt="Star" class="star-icon">
+                                <input type="number" class="starInput" id="star-target-8" min="10" max="99999"
+                                    placeholder="10">
+                                <button class="btn padlock">🔒</button>
+                                <button class="btn minus">-</button>
+                                <button class="btn plus">+</button>
+                            </div>
+                        </div>
+                        <div class="row two">
+                            <div class="star-cell"><img src="images/star.png" alt="Star" class="star-icon">
+                                <input type="number" class="starInput" id="star-target-9" min="10" max="99999"
+                                    placeholder="10">
+                                <button class="btn padlock">🔒</button>
+                                <button class="btn minus">-</button>
+                                <button class="btn plus">+</button>
+                            </div>
+                            <div class="star-cell"><img src="images/star.png" alt="Star" class="star-icon">
+                                <input type="number" class="starInput" id="star-target-10" min="10" max="99999"
+                                    placeholder="10">
+                                <button class="btn padlock">🔒</button>
+                                <button class="btn minus">-</button>
+                                <button class="btn plus">+</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bulk-buttons">
+                        <button class="btn bulk" data-step="-10">-10</button>
+                        <button class="btn bulk" data-step="-5">-5</button>
+                        <button class="btn bulk" data-step="-1">-1</button>
+                        <button class="btn bulk" data-step="1">+1</button>
+                        <button class="btn bulk" data-step="5">+5</button>
+                        <button class="btn bulk" data-step="10">+10</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="starCalcModifiers">
+                <div class="modifierInput">
+                    <label for="scrapyardV2" data-i18n="modifier-scrapyard-label">Scrapyard V2:</label>
+                    <input type="number" id="scrapyardV2" min="0" max="100" value="0">
+                </div>
+                <div class="modifierInput">
+                    <label for="achievementsLvl2" data-i18n="modifier-achievements-label">Achievements Lvl 2:</label>
+                    <input type="number" id="achievementsLvl2" min="0" max="100" value="0">
+                </div>
+                <div class="modifierInput">
+                    <label for="masteryLvl17" data-i18n="modifier-mastery-label">Mastery Lvl 17:</label>
+                    <input type="number" id="masteryLvl17" min="0" max="100" value="0">
+                </div>
+            </div>
+
+            <div class="starCalcResults">
+                <div class="resultItem">
+                    <img src="images/goldenScrap.png" alt="Golden Scrap" class="result-icon">
+                    <span id="totalGoldenScrapNeeded">0</span>
+                </div>
+                <div class="resultItem">
+                    <img src="images/magnet.png" alt="Magnet" class="result-icon">
+                    <span id="totalMagnetsNeeded">0</span>
+                </div>
+                <div class="resultItem">
+                    <img src="images/starfragment.png" alt="Star Fragment" class="result-icon">
+                    <span id="totalStarfragmentsNeeded">0</span>
+                </div>
+            </div>
+        </section>
+        <section class="posTab" data-i18n="position-calculator-coming-soon">posTab data</section>
+        <section class="questTab" data-i18n="quest-calculator-coming-soon">questTab data</section>
+        <section class="mergeTab" data-i18n="merge-calculator-coming-soon">mergeTab data</section>
+        <section class="infoTab" data-i18n="info-coming-soon">infoTab data</section>
+        <section class="optionTab">
+            <div class="language-switcher">
+                <label for="languageSelect" data-i18n="language-select-label">Language</label>
+                <select id="languageSelect" onchange="changeLanguage()">
+                    <option value="en">English</option>
+                    <option value="de">Deutsch</option>
+                    <option value="fr">Français</option>
+                    <option value="es">Español</option>
+                    <option value="pl">Polski</option>
+                    <option value="pt">Português</option>
+                    <option value="ru">Pусский</option>
+                    <option value="uk">Українська</option>
+                    <option value="it">Italiano</option>
+                    <option value="tr">Türkçe</option>
+                </select>
+            </div>
+            <div class="save-settings"><label for="rememberMe" data-i18n="save-settings-label">Save Settings</label>
+                <label class="checkbox-wrapper style-20">
+                    <input id="rememberMe" type="checkbox" onchange="onRememberMeChange()">
+                    <div class="checkbox-slider">
+                        <div class="checkbox-knob">
+                            <span class="label-no" data-i18n="checkbox-no-label">No</span>
+                            <span class="label-yes" data-i18n="checkbox-yes-label">Yes</span>
+                        </div>
+
+                    </div>
+                </label>
+
+
+
+
+            </div>
+        </section>
+    </main>
+    <footer>
+
+    </footer>
+    <script src="site.js"></script>
+</body>
+
+</html>

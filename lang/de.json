@@ -1,13 +1,21 @@
 {
-  "currentStarTitle": "Aktueller Stern",
-  "currentStarToggle": "Ansicht wechseln",
-  "targetStarTitle": "Zielstern",
-  "targetStarToggle": "Ansicht wechseln",
-  "modifierScrapyardLabel": "Schrottplatz V2",
-  "modifierAchievementsLabel": "Errungenschaften Stufe 2",
-  "modifierMasteryLabel": "Meisterschaft Fass 17",
-  "costsTitle": "Kosten",
-  "costGoldenScrap": "Goldener Schrott",
-  "costMagnets": "Magnete",
-  "costStarFragments": "Sternfragmente"
+  "locale": "de-DE",
+  "language-select-label": "Sprache",
+  "save-settings-label": "Einstellungen speichern",
+  "star-calc-header-label": "Sterne-Upgrade",
+  "current-star-level-label": "Aktuelle Sterne",
+  "set-all-stars-label": "Alle Sterne setzen:",
+  "target-star-level-label": "Ziel-Sterne",
+  "modifier-scrapyard-label": "Schrottplatz V2",
+  "modifier-achievements-label": "Erfolge Stufe 2",
+  "modifier-mastery-label": "Meisterschaft Fass 17",
+  "position-calculator-coming-soon": "Positionsrechner bald verfügbar",
+  "quest-calculator-coming-soon": "Quest-Rechner bald verfügbar",
+  "merge-calculator-coming-soon": "Merge-Rechner bald verfügbar",
+  "info-coming-soon": "Info bald verfügbar",
+  "toggle-grid-view-label-hide": "Raster anzeigen",
+  "toggle-grid-view-label-show": "Raster ausblenden",
+  "checkbox-no-label": "Nein",
+  "checkbox-yes-label": "Ja"
+
 }

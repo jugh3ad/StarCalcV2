@@ -1,0 +1,143 @@
+:root {
+    --color-pale-green: #A6D3AD;
+    --color-green: #22B241;
+    --color-dark-green: #18702C;
+    --color-dark-blue: #0070C2;
+    --color-light-blue: #3698FF;
+    --color-light-gray: #BEBEBE;
+    --color-gray: #737374;
+    --color-dark-gray: #636363;
+    --color-darker-gray: #3d3d3d;
+    --color-black: #1F1F1F;
+    --color-red: #CD0001;
+    --color-dark-red: #AF0000;
+
+}
+
+body {
+    background-color: #A6D3AD;
+    min-width: 400px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.mainNav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #22B241;
+    flex-wrap: wrap;
+    /* lets buttons wrap on small screens */
+    margin: 5px;
+
+}
+
+.mainNav button {
+    cursor: pointer;
+    height: clamp(60px, 15vw, 100px);
+    /* scales with viewport */
+    width: clamp(60px, 15vw, 100px);
+    color: white;
+    font-size: clamp(1rem, 2vw, 2rem);
+    /* fluid text size */
+    font-weight: bold;
+    background: none;
+    /* optional: remove default button styles */
+    border: none;
+}
+
+
+.mainNav button img {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+}
+
+.navButton.star {
+    background: linear-gradient(to bottom, #636363 50%, #1F1F1F 50%);
+}
+
+.navButton.position {
+    background: linear-gradient(to bottom, #12FB12 50%, #12CC12 50%)
+}
+
+.navButton.quest {
+    background: linear-gradient(to bottom, #70C6FF 50%, #1C87FF 50%);
+}
+
+.navButton.merge {
+    background: linear-gradient(to bottom, #808080 50%, #4b4b4b 50%);
+}
+
+.navButton.info {
+    background: linear-gradient(to bottom, #70C6FF 50%, #1C87FF 50%);
+}
+
+.navButton.option {
+    background: linear-gradient(to bottom, #70C6FF 50%, #1C87FF 50%);
+}
+
+
+
+h1 {
+    color: white;
+    background: linear-gradient(to bottom, #808080 50%, #4b4b4b 50%);
+    width: 100%;
+    text-align: center;
+    margin: 0;
+    padding: 10px 0;
+}
+
+h2 {
+    color: white;
+    background: linear-gradient(to bottom, #808080 50%, #4b4b4b 50%);
+    width: 100%;
+    text-align: center;
+    margin: auto;
+    padding: 10px 0;
+    margin-top: 10px;
+}
+
+h3 {
+    font-weight: bold;
+    color: white;
+    margin: 10px 0 0 0;
+    padding: 10px;
+    text-align: center;
+    background-color: #1F1F1F;
+    width: fit-content;
+    margin: auto;
+    margin-top: 10px;
+}
+
+.toggleGrid {
+    cursor: pointer;
+    margin: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    background: linear-gradient(to bottom, #70C6FF 50%, #1C87FF 50%);
+    border: none;
+    outline: none;
+}
+
+/* Hide spinners for number input */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.hidden {
+  display: none !important;
+}
+
+section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 20px;
+    margin: 5px;
+    background-color: var(--color-light-gray);
+}

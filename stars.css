@@ -1,0 +1,245 @@
+section.starTab {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 20px;
+    margin: 5px;
+    background-color: var(--color-light-gray);
+}
+
+.starInput {
+    width: 80px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    border: none;
+    outline: none;
+    background-color: #E0E0E0;
+
+}
+
+.starCalcInputs {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.starCalcInput {
+    max-width: 500px;
+}
+
+.starGrid {
+    display: grid;
+    gap: 0;
+    row-gap: 0;
+    margin-top: 1rem;
+}
+
+.starGrid .row {
+    display: flex;
+    justify-content: center;
+    /* centers items horizontally */
+    gap: 0;
+    margin-top: -0.75rem;
+    /* adjust overlap amount */
+
+}
+
+.starGrid.row div {
+    background: lightblue;
+    padding: 1rem;
+}
+
+.star-cell {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    display: flex;
+}
+
+.star-cell img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.star-cell input {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+    height: 20%;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    outline: none;
+    text-align: center;
+    background: transparent;
+}
+
+.star-cell .padlock {
+    display: flex;
+    justify-content: center;
+    /* horizontal center */
+    align-items: center;
+    /* vertical center */
+    font-size: 1rem;
+    /* adjust icon size */
+    width: 20px;
+    height: 20px;
+    background: linear-gradient(to bottom, #12FB12 50%, #12CC12 50%);
+    cursor: pointer;
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    border: none;
+    outline: none;
+
+}
+
+.star-cell .minus {
+    cursor: pointer;
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    width: 20px;
+    height: 20px;
+    background: linear-gradient(to bottom, #70C6FF 50%, #1C87FF 50%);
+    font-weight: bold;
+    font-size: large;
+    display: flex;
+    justify-content: center;
+    /* horizontal center */
+    align-items: center;
+    /* vertical center */
+    border: none;
+    outline: none;
+    color: white;
+}
+
+.star-cell .plus {
+    cursor: pointer;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    width: 20px;
+    height: 20px;
+    background: linear-gradient(to bottom, #70C6FF 50%, #1C87FF 50%);
+    font-weight: bold;
+    font-size: large;
+    display: flex;
+    justify-content: center;
+    /* horizontal center */
+    align-items: center;
+    /* vertical center */
+    border: none;
+    outline: none;
+    color: white;
+}
+
+.starCalcInput .bulk-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 5px;
+
+}
+
+.starCalcInput .bulk-buttons .btn.bulk {
+    width: 30px;
+    height: 30px;
+    align-items: center;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(to bottom, #70C6FF 50%, #1C87FF 50%);
+    font-weight: bold;
+    font-size: large;
+    color: white;
+    border: none;
+    cursor: pointer;
+
+}
+
+.starCalcModifiers {
+    display: flex;
+    flex-wrap: wrap;
+    /* Allow items to wrap to next line */
+    gap: 16px;
+    /* Equal spacing between items */
+}
+
+.modifierInput {
+    flex: 1 1 30%;
+    /* Grow/shrink, minimum width 200px */
+    min-width: 200px;
+    display: flex;
+    flex-direction: column;
+    /* Label above input */
+    align-items: center;
+}
+
+.modifierInput label {
+    text-align: center;
+    /* Center text inside label */
+    margin-bottom: 6px;
+    /* Space between label and input */
+    font-weight: bold;
+    color: white;
+    margin: 10px 0 0 0;
+    padding: 10px;
+    text-align: center;
+    background: linear-gradient(to bottom, #808080 50%, #4b4b4b 50%);
+    width: clamp(175px, 33%, 250px);
+    text-align: center;
+    margin: auto;
+    padding: 10px 0;
+    margin-top: 10px;
+
+}
+
+.modifierInput input {
+    width: clamp(175px, 33%, 250px);
+    /* Stretch to full width of container */
+    /* Optional: keep consistent width */
+    box-sizing: border-box;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    border: none;
+    outline: none;
+    background-color: #E0E0E0;
+}
+
+.starCalcResults {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.resultItem {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    border-radius: 8px;
+    width: fit-content;
+    min-width: 250px;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.result-icon {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    margin-right: 10px;
+}
